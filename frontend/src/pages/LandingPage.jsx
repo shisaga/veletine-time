@@ -239,6 +239,13 @@ const LandingPage = () => {
               <div className="text-white text-xl mb-8">Loading pricing...</div>
             ) : (
               <>
+                <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-6 border-2 border-white/40">
+                  <span className="text-white font-body text-sm">
+                    {pricing.region === 'South Asia' ? '🇮🇳 ' : '🌍 '}
+                    Pricing for: <span className="font-bold">{pricing.region}</span>
+                  </span>
+                </div>
+                
                 <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
                   <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border-4 border-white/30 hover:scale-105 transition-all">
                     <div className="text-white/80 text-sm font-body mb-2">SINGLE</div>
