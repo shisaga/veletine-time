@@ -1,0 +1,116 @@
+import { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { Heart } from 'lucide-react';
+import { Button } from '../ui/button';
+
+const RunawayNo = ({ valentine, onResponse }) => {
+  const [noPosition, setNoPosition] = useState({ x: 0, y: 0 });
+  const [attempts, setAttempts] = useState(0);
+  const noButtonRef = useRef(null);
+  
+  const moveNoButton = () => {
+    const newAttempts = attempts + 1;
+    setAttempts(newAttempts);
+    
+    const maxX = window.innerWidth - 200;
+    const maxY = window.innerHeight - 100;
+    
+    const newX = Math.random() * maxX - maxX / 2;
+    const newY = Math.random() * maxY - maxY / 2;
+    
+    setNoPosition({ x: newX, y: newY });
+  };
+  
+  const messages = [
+    "Wait! Think about it...",
+    "Are you sure? 🥺",
+    "Really? You're breaking my heart...",
+    "One more chance?",
+    "Pretty please? 💕"
+  ];
+  
+  return (
+    <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="max-w-2xl w-full text-center"
+      >
+        <motion.div
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="text-6xl mb-8"
+        >
+          💖
+        </motion.div>
+        
+        <h1 className="text-4xl lg:text-6xl font-heading font-bold text-foreground mb-6">
+          Hey {valentine.to_name}! 💕
+        </h1>
+        
+        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-floating mb-8">
+          <p className="text-xl lg:text-2xl font-body text-foreground mb-6">
+            {valentine.message}
+          </p>
+          <p className="text-lg text-foreground/70 font-accent">
+            - {valentine.from_name}
+          </p>
+        </div>
+        
+        {attempts > 0 && (
+          <motion.p
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-lg font-accent text-primary mb-6"
+          >
+            {messages[Math.min(attempts - 1, messages.length - 1)]}
+          </motion.p>
+        )}
+        
+        <div className="flex gap-4 justify-center items-center relative" style={{ minHeight: '60px' }}>
+          <Button
+            data-testid="yes-button"
+            onClick={() => onResponse('yes')}
+            size="lg"
+            className="rounded-full px-12 py-6 text-xl shadow-floating hover:scale-110 transition-all"
+          >
+            <Heart className="mr-2 h-6 w-6 fill-white" />
+            Yes! 💕
+          </Button>
+          
+          <motion.div
+            animate={{ x: noPosition.x, y: noPosition.y }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="absolute"
+            style={{ left: '60%' }}
+          >
+            <Button
+              data-testid="no-button"
+              ref={noButtonRef}
+              onMouseEnter={moveNoButton}
+              onTouchStart={moveNoButton}
+              onClick={moveNoButton}
+              variant="outline"
+              size="lg"
+              className="rounded-full px-12 py-6 text-xl"
+            >
+              No
+            </Button>
+          </motion.div>
+        </div>
+        
+        {attempts > 3 && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mt-6 text-sm font-body text-foreground/60"
+          >
+            (Psst... the No button is playing hard to get 😉)
+          </motion.p>
+        )}
+      </motion.div>
+    </div>
+  );
+};
+
+export default RunawayNo;
