@@ -51,24 +51,31 @@ const EmotionalDamage = ({ valentine, onResponse }) => {
       >
         <motion.div
           animate={{ 
-            scale: hovering ? [1, 0.8, 1] : [1, 1.1, 1],
+            scale: hovering ? [1, 0.8, 1] : [1, 1.15, 1],
             rotate: hovering ? [0, -10, 10, 0] : 0
           }}
-          transition={{ duration: 0.5, repeat: hovering ? Infinity : 0 }}
-          className="text-6xl mb-8"
+          transition={{ duration: 0.5, repeat: hovering ? Infinity : Infinity }}
+          className="mb-8"
         >
-          {hovering || clickCount > 0 ? '😢' : '💖'}
+          <img 
+            src={hovering || clickCount > 0 
+              ? "https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/v6n5belr_face2.svg"
+              : "https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/hkh1cha6_face1.svg"
+            }
+            alt="Character emotion"
+            className="h-32 w-32 mx-auto"
+          />
         </motion.div>
         
         <h1 className="text-4xl lg:text-6xl font-heading font-bold text-foreground mb-6">
           {valentine.to_name}, will you be mine? 💕
         </h1>
         
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-floating mb-8">
-          <p className="text-xl lg:text-2xl font-body text-foreground mb-6">
+        <div className="bg-white rounded-[3rem] p-8 shadow-cartoon border-4 border-foreground/10 mb-8">
+          <p className="text-xl lg:text-3xl font-body text-foreground mb-6">
             {valentine.message}
           </p>
-          <p className="text-lg text-foreground/70 font-accent">
+          <p className="text-xl text-foreground/70 font-accent text-2xl">
             - {valentine.from_name}
           </p>
         </div>
@@ -81,7 +88,7 @@ const EmotionalDamage = ({ valentine, onResponse }) => {
               exit={{ opacity: 0 }}
               className="mb-6"
             >
-              <p className="text-xl font-accent text-primary mb-2">
+              <p className="text-2xl font-accent text-primary mb-4 bg-white rounded-3xl p-4 shadow-cartoon inline-block">
                 {sadMessages[Math.min(clickCount - 1, sadMessages.length - 1)]}
               </p>
               {clickCount > 2 && (
@@ -90,7 +97,7 @@ const EmotionalDamage = ({ valentine, onResponse }) => {
                   animate={{ scale: 1 }}
                   src="https://images.unsplash.com/photo-1651044204351-f0a6aab96e3e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwxfHxjdXRlJTIwcHVwcHklMjBleWVzJTIwZG9nfGVufDB8fHx8MTc3MDU3MzAzNnww&ixlib=rb-4.1.0&q=85"
                   alt="Sad puppy"
-                  className="w-48 h-48 object-cover rounded-2xl mx-auto shadow-lg"
+                  className="w-48 h-48 object-cover rounded-3xl mx-auto shadow-cartoon mt-4 border-4 border-foreground/10"
                 />
               )}
             </motion.div>
@@ -102,9 +109,9 @@ const EmotionalDamage = ({ valentine, onResponse }) => {
             data-testid="yes-button"
             onClick={() => onResponse('yes')}
             size="lg"
-            className="rounded-full px-12 py-6 text-xl shadow-floating hover:scale-110 transition-all"
+            className="cartoon-border rounded-full px-14 py-7 text-2xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-110 transition-all"
           >
-            <Heart className="mr-2 h-6 w-6 fill-white" />
+            <Heart className="mr-2 h-7 w-7 fill-white" />
             Yes! 💕
           </Button>
           
@@ -113,9 +120,7 @@ const EmotionalDamage = ({ valentine, onResponse }) => {
             onMouseEnter={handleNoHover}
             onMouseLeave={handleNoLeave}
             onClick={handleNoClick}
-            variant="outline"
-            size="lg"
-            className="rounded-full px-12 py-6 text-xl"
+            className="cartoon-border rounded-full px-14 py-7 text-2xl font-heading font-bold bg-white hover:bg-gray-50 border-4"
           >
             No
           </Button>
