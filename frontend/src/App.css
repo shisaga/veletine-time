@@ -15,24 +15,27 @@
 
 .heart {
   position: absolute;
-  font-size: 20px;
+  font-size: 30px;
   animation: float 8s ease-in-out infinite;
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
 @keyframes float {
   0% {
-    transform: translateY(100vh) rotate(0deg);
+    transform: translateY(100vh) rotate(0deg) scale(1);
     opacity: 0;
   }
   10% {
-    opacity: 0.3;
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) scale(1.2);
   }
   90% {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   100% {
-    transform: translateY(-100px) rotate(360deg);
+    transform: translateY(-100px) rotate(360deg) scale(1);
     opacity: 0;
   }
 }
@@ -42,3 +45,29 @@
 .heart:nth-child(3) { left: 50%; animation-delay: 4s; }
 .heart:nth-child(4) { left: 70%; animation-delay: 1s; }
 .heart:nth-child(5) { left: 90%; animation-delay: 3s; }
+
+.bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
