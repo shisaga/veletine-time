@@ -72,7 +72,7 @@ const RunawayNo = ({ valentine, onResponse }) => {
             data-testid="yes-button"
             onClick={() => onResponse('yes')}
             size="lg"
-            className="cartoon-border rounded-full px-14 py-7 text-2xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-110 transition-all"
+            className="cartoon-border rounded-full px-14 py-7 text-2xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-110 transition-all text-white"
           >
             <Heart className="mr-2 h-7 w-7 fill-white" />
             Yes! 💕
@@ -90,7 +90,7 @@ const RunawayNo = ({ valentine, onResponse }) => {
               onMouseEnter={moveNoButton}
               onTouchStart={moveNoButton}
               onClick={moveNoButton}
-              className="cartoon-border rounded-full px-14 py-7 text-2xl font-heading font-bold bg-white hover:bg-gray-50 border-4"
+              className="cartoon-border rounded-full px-14 py-7 text-2xl font-heading font-bold bg-white hover:bg-gray-50 border-4 text-foreground"
             >
               No
             </Button>
