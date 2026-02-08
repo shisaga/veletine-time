@@ -166,7 +166,7 @@ const PaymentPage = () => {
           
           {/* Bundle Selection */}
           <div className="grid md:grid-cols-3 gap-4 mb-8">
-            {Object.entries(bundles).map(([key, bundle]) => (
+            {Object.entries(pricing.bundles).map(([key, bundle]) => (
               <button
                 key={key}
                 onClick={() => setSelectedBundle(key)}
@@ -185,7 +185,7 @@ const PaymentPage = () => {
                   {bundle.name.toUpperCase()}
                 </div>
                 <div className="text-4xl font-heading font-bold mb-2">
-                  ₹{bundle.price}
+                  {pricing.symbol}{bundle.price}
                 </div>
                 <div className={`text-sm font-body mb-3 ${selectedBundle === key ? 'text-white/90' : 'text-foreground/70'}`}>
                   {bundle.links} {bundle.links === 1 ? 'Link' : 'Links'}
