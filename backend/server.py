@@ -399,25 +399,50 @@ async def record_valentine_response(valentine_id: str, response_data: ValentineR
     return {"message": "Response recorded"}
 
 # Payment routes
+@api_router.get("/payment/pricing")
+async def get_pricing(request: Request):
+    """Get regional pricing based on user's location"""
+    country_code = get_country_from_ip(request)
+    pricing = get_regional_pricing(country_code)
+    
+    return {
+        "country": country_code,
+        "currency": pricing["currency"],
+        "symbol": pricing["symbol"],
+        "prices": {
+            "single": pricing["single"],
+            "bundle_3": pricing["bundle_3"],
+            "bundle_5": pricing["bundle_5"]
+        }
+    }
+
 @api_router.post("/payment/create-order")
-async def create_payment_order(payment_data: PaymentCreate):
-    """Create Razorpay order"""
+async def create_payment_order(payment_data: PaymentCreate, request: Request):
+    """Create Razorpay order with regional pricing"""
     try:
-        # Pricing in INR
-        pricing = {
-            "single": 249,
-            "bundle_3": 399,
-            "bundle_5": 549
+        country_code = get_country_from_ip(request)
+        pricing = get_regional_pricing(country_code)
+        
+        # Get price based on bundle type
+        price_map = {
+            "single": pricing["single"],
+            "bundle_3": pricing["bundle_3"],
+            "bundle_5": pricing["bundle_5"]
         }
         
-        amount = pricing.get(payment_data.bundle_type, 249)
+        amount = price_map.get(payment_data.bundle_type, pricing["single"])
+        currency = pricing["currency"]
+        
+        # Razorpay expects amount in smallest currency unit (paise for INR, cents for USD)
+        razorpay_amount = int(amount * 100)
         
         order_data = {
-            "amount": amount * 100,  # Razorpay expects amount in paise
-            "currency": payment_data.currency,
+            "amount": razorpay_amount,
+            "currency": currency,
             "receipt": payment_data.valentine_id,
             "notes": {
-                "bundle_type": payment_data.bundle_type
+                "bundle_type": payment_data.bundle_type,
+                "country": country_code
             }
         }
         order = razorpay_client.order.create(data=order_data)
@@ -425,7 +450,8 @@ async def create_payment_order(payment_data: PaymentCreate):
             "order_id": order["id"],
             "amount": order["amount"],
             "currency": order["currency"],
-            "bundle_type": payment_data.bundle_type
+            "bundle_type": payment_data.bundle_type,
+            "display_amount": amount
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
