@@ -144,6 +144,49 @@ const LandingPage = () => {
             </div>
           </section>
           
+          <section className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-5xl lg:text-6xl font-heading font-bold text-foreground mb-4">
+                Why Choose <span className="text-primary">Cupid's Prank?</span>
+              </h2>
+              <p className="text-xl text-foreground/70 font-body">The ONLY Valentine surprise they'll remember forever!</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="bg-white rounded-3xl p-8 shadow-cartoon border-4 border-foreground/10">
+                <div className="text-5xl mb-4">😂</div>
+                <h3 className="text-2xl font-heading font-bold text-foreground mb-3">5 Hilarious Templates</h3>
+                <p className="text-foreground/70 font-body leading-relaxed">
+                  From runaway buttons to guilt trips - each template is designed to make saying "No" IMPOSSIBLE!
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-3xl p-8 shadow-cartoon border-4 border-foreground/10">
+                <div className="text-5xl mb-4">💕</div>
+                <h3 className="text-2xl font-heading font-bold text-foreground mb-3">Fully Customizable</h3>
+                <p className="text-foreground/70 font-body leading-relaxed">
+                  Add your names, write a personal message, and make it uniquely YOURS!
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-3xl p-8 shadow-cartoon border-4 border-foreground/10">
+                <div className="text-5xl mb-4">📱</div>
+                <h3 className="text-2xl font-heading font-bold text-foreground mb-3">Works Everywhere</h3>
+                <p className="text-foreground/70 font-body leading-relaxed">
+                  Mobile, tablet, desktop - your Valentine surprise looks AMAZING on any device!
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-3xl p-8 shadow-cartoon border-4 border-foreground/10">
+                <div className="text-5xl mb-4">⚡</div>
+                <h3 className="text-2xl font-heading font-bold text-foreground mb-3">Instant Delivery</h3>
+                <p className="text-foreground/70 font-body leading-relaxed">
+                  Create, pay, and get your shareable link in under 2 minutes! No waiting!
+                </p>
+              </div>
+            </div>
+          </section>
+          
           <section className="bg-gradient-to-br from-primary to-accent rounded-3xl p-12 text-center shadow-floating">
             <Zap className="h-20 w-20 text-white mx-auto mb-6 drop-shadow-lg" />
             <h2 className="text-5xl font-heading font-bold text-white mb-4 drop-shadow-lg">
