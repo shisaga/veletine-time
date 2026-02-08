@@ -387,14 +387,20 @@ async def record_valentine_response(valentine_id: str, response_data: ValentineR
     return {"message": "Response recorded"}
 
 # Payment routes
-@api_router.get("/payment/pricing")
+@api_router.post("/payment/pricing")
 async def get_pricing(request: Request):
-    """Get regional pricing based on user's location"""
-    country_code = get_country_from_ip(request)
-    pricing = get_regional_pricing(country_code)
+    """Get regional pricing based on user's timezone"""
+    try:
+        body = await request.json()
+        timezone = body.get("timezone", "UTC")
+    except:
+        timezone = "UTC"
+    
+    pricing = get_regional_pricing_by_timezone(timezone)
     
     return {
-        "country": country_code,
+        "timezone": timezone,
+        "region": pricing["region"],
         "currency": pricing["currency"],
         "symbol": pricing["symbol"],
         "prices": {
@@ -408,8 +414,14 @@ async def get_pricing(request: Request):
 async def create_payment_order(payment_data: PaymentCreate, request: Request):
     """Create Razorpay order with regional pricing"""
     try:
-        country_code = get_country_from_ip(request)
-        pricing = get_regional_pricing(country_code)
+        # Get timezone from request body or headers
+        try:
+            body = await request.json()
+            timezone = body.get("timezone", "UTC")
+        except:
+            timezone = "UTC"
+        
+        pricing = get_regional_pricing_by_timezone(timezone)
         
         # Get price based on bundle type
         price_map = {
@@ -430,7 +442,7 @@ async def create_payment_order(payment_data: PaymentCreate, request: Request):
             "receipt": payment_data.valentine_id,
             "notes": {
                 "bundle_type": payment_data.bundle_type,
-                "country": country_code
+                "timezone": timezone
             }
         }
         order = razorpay_client.order.create(data=order_data)
