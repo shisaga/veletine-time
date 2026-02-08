@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Heart, CreditCard } from 'lucide-react';
+import { Heart, CreditCard, Zap } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import axios from 'axios';
 import { toast } from 'sonner';
@@ -14,6 +14,13 @@ const PaymentPage = () => {
   const [valentine, setValentine] = useState(null);
   const [loading, setLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
+  const [selectedBundle, setSelectedBundle] = useState('single');
+  
+  const bundles = {
+    single: { price: 249, name: 'Single Link', links: 1, savings: 0 },
+    bundle_3: { price: 399, name: '3 Links Bundle', links: 3, savings: 46, popular: true },
+    bundle_5: { price: 549, name: '5 Links Bundle', links: 5, savings: 55 }
+  };
   
   useEffect(() => {
     fetchValentine();
@@ -56,8 +63,9 @@ const PaymentPage = () => {
         `${BACKEND_URL}/api/payment/create-order`,
         {
           valentine_id: valentineId,
-          amount: 15,
-          currency: 'INR'
+          amount: bundles[selectedBundle].price,
+          currency: 'INR',
+          bundle_type: selectedBundle
         },
         { withCredentials: true }
       );
@@ -68,7 +76,7 @@ const PaymentPage = () => {
         currency: orderResponse.data.currency,
         order_id: orderResponse.data.order_id,
         name: "Cupid's Prank",
-        description: 'Valentine Surprise Link',
+        description: bundles[selectedBundle].name,
         handler: async function (response) {
           try {
             await axios.post(
@@ -116,8 +124,8 @@ const PaymentPage = () => {
   }
   
   return (
-    <div className="min-h-screen cartoon-bg relative overflow-hidden flex items-center justify-center">
-      <div className="relative z-10 w-full max-w-md px-4">
+    <div className="min-h-screen cartoon-bg relative overflow-hidden flex items-center justify-center py-8">
+      <div className="relative z-10 w-full max-w-4xl px-4">
         <div className="bg-white rounded-[3rem] p-10 shadow-cartoon border-4 border-foreground/10">
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center mb-4">
@@ -128,15 +136,51 @@ const PaymentPage = () => {
               />
             </div>
             <h1 className="text-4xl font-heading font-bold text-foreground mb-2">
-              Almost There! 🎉
+              Choose Your Package! 🎁
             </h1>
             <p className="text-lg text-foreground/70 font-body">
-              Just one more step to create magic!
+              Select the best value for your Valentine surprises!
             </p>
+          </div>
+          
+          {/* Bundle Selection */}
+          <div className="grid md:grid-cols-3 gap-4 mb-8">
+            {Object.entries(bundles).map(([key, bundle]) => (
+              <button
+                key={key}
+                onClick={() => setSelectedBundle(key)}
+                className={`relative rounded-3xl p-6 transition-all duration-300 border-4 ${
+                  selectedBundle === key
+                    ? 'bg-gradient-to-br from-primary to-pink-400 text-white border-foreground shadow-floating scale-105'
+                    : 'bg-white text-foreground border-foreground/10 hover:scale-105 shadow-cartoon'
+                }`}
+              >
+                {bundle.popular && (
+                  <div className="absolute -top-3 right-4 bg-yellow-400 text-foreground px-3 py-1 rounded-full text-xs font-bold">
+                    POPULAR ⭐
+                  </div>
+                )}
+                <div className={`text-sm font-body mb-2 ${selectedBundle === key ? 'text-white/80' : 'text-foreground/60'}`}>
+                  {bundle.name.toUpperCase()}
+                </div>
+                <div className="text-4xl font-heading font-bold mb-2">
+                  ₹{bundle.price}
+                </div>
+                <div className={`text-sm font-body mb-3 ${selectedBundle === key ? 'text-white/90' : 'text-foreground/70'}`}>
+                  {bundle.links} {bundle.links === 1 ? 'Link' : 'Links'}
+                </div>
+                {bundle.savings > 0 && (
+                  <div className={`text-xs font-bold ${selectedBundle === key ? 'text-white' : 'text-green-600'}`}>
+                    SAVE {bundle.savings}%! 🎉
+                  </div>
+                )}
+              </button>
+            ))}
           </div>
           
           {valentine && (
             <div className="bg-gradient-to-br from-secondary/50 to-accent/30 rounded-3xl p-6 mb-8 border-4 border-foreground/10">
+              <h3 className="text-lg font-heading font-bold text-foreground mb-4 text-center">Your Valentine Details</h3>
               <div className="space-y-3 mb-4">
                 <div className="flex justify-between items-center">
                   <span className="text-foreground/70 font-body">To:</span>
@@ -157,8 +201,13 @@ const PaymentPage = () => {
               <div className="border-t-4 border-foreground/10 pt-4">
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-heading font-bold text-foreground">Total</span>
-                  <span className="text-5xl font-heading font-bold text-primary">₹15</span>
+                  <span className="text-5xl font-heading font-bold text-primary">₹{bundles[selectedBundle].price}</span>
                 </div>
+                {bundles[selectedBundle].links > 1 && (
+                  <p className="text-sm text-foreground/60 font-body text-right mt-2">
+                    You'll get {bundles[selectedBundle].links} links total!
+                  </p>
+                )}
               </div>
             </div>
           )}
@@ -170,7 +219,7 @@ const PaymentPage = () => {
             className="w-full cartoon-border rounded-full py-7 text-xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-105 transition-all text-white"
           >
             <CreditCard className="mr-2 h-6 w-6" />
-            {processing ? 'Processing... ⏳' : 'Pay ₹15 Now 💳'}
+            {processing ? 'Processing... ⏳' : `Pay ₹${bundles[selectedBundle].price} Now 💳`}
           </Button>
           
           <p className="text-center text-xs text-foreground/60 font-body mt-6">
