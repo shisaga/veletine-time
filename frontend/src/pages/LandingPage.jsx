@@ -1,8 +1,42 @@
 import { Link } from 'react-router-dom';
 import { Heart, Sparkles, Gift, Zap } from 'lucide-react';
 import { Button } from '../components/ui/button';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const LandingPage = () => {
+  const [pricing, setPricing] = useState({
+    symbol: '₹',
+    prices: {
+      single: 9.99,
+      bundle_3: 24.99,
+      bundle_5: 34.99
+    },
+    currency: 'INR'
+  });
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    fetchPricing();
+  }, []);
+  
+  const fetchPricing = async () => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/api/payment/pricing`);
+      setPricing({
+        symbol: response.data.symbol,
+        prices: response.data.prices,
+        currency: response.data.currency
+      });
+    } catch (error) {
+      console.error('Error fetching pricing:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
   return (
     <div className="min-h-screen cartoon-bg relative overflow-hidden">
       <div className="floating-hearts">
