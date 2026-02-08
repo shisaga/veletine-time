@@ -227,37 +227,53 @@ const LandingPage = () => {
               Valentine's Special! 💝
             </h2>
             
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border-4 border-white/30 hover:scale-105 transition-all">
-                <div className="text-white/80 text-sm font-body mb-2">SINGLE</div>
-                <div className="flex items-baseline justify-center gap-2 mb-3">
-                  <span className="text-5xl font-heading font-bold text-white drop-shadow-lg">₹249</span>
-                  <span className="text-lg text-white/80 font-body">/ link</span>
+            {loading ? (
+              <div className="text-white text-xl mb-8">Loading pricing...</div>
+            ) : (
+              <>
+                <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border-4 border-white/30 hover:scale-105 transition-all">
+                    <div className="text-white/80 text-sm font-body mb-2">SINGLE</div>
+                    <div className="flex items-baseline justify-center gap-2 mb-3">
+                      <span className="text-5xl font-heading font-bold text-white drop-shadow-lg">
+                        {pricing.symbol}{pricing.prices.single}
+                      </span>
+                      <span className="text-lg text-white/80 font-body">/ link</span>
+                    </div>
+                    <p className="text-white/90 text-sm font-body">Perfect for that special someone</p>
+                  </div>
+                  
+                  <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-6 border-4 border-white/50 hover:scale-105 transition-all relative">
+                    <div className="absolute -top-3 right-4 bg-yellow-400 text-foreground px-3 py-1 rounded-full text-xs font-bold">
+                      POPULAR ⭐
+                    </div>
+                    <div className="text-white/80 text-sm font-body mb-2">3 LINKS BUNDLE</div>
+                    <div className="flex items-baseline justify-center gap-2 mb-3">
+                      <span className="text-6xl font-heading font-bold text-white drop-shadow-lg">
+                        {pricing.symbol}{pricing.prices.bundle_3}
+                      </span>
+                    </div>
+                    <p className="text-white/90 text-sm font-body mb-2">
+                      {pricing.symbol}{(pricing.prices.bundle_3 / 3).toFixed(2)}/link - Save 16%!
+                    </p>
+                    <p className="text-white/80 text-xs font-body">Best for testing different pranks</p>
+                  </div>
+                  
+                  <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border-4 border-white/30 hover:scale-105 transition-all">
+                    <div className="text-white/80 text-sm font-body mb-2">5 LINKS BUNDLE</div>
+                    <div className="flex items-baseline justify-center gap-2 mb-3">
+                      <span className="text-5xl font-heading font-bold text-white drop-shadow-lg">
+                        {pricing.symbol}{pricing.prices.bundle_5}
+                      </span>
+                    </div>
+                    <p className="text-white/90 text-sm font-body mb-2">
+                      {pricing.symbol}{(pricing.prices.bundle_5 / 5).toFixed(2)}/link - Save 30%!
+                    </p>
+                    <p className="text-white/80 text-xs font-body">Ultimate value pack</p>
+                  </div>
                 </div>
-                <p className="text-white/90 text-sm font-body">Perfect for that special someone</p>
-              </div>
-              
-              <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-6 border-4 border-white/50 hover:scale-105 transition-all relative">
-                <div className="absolute -top-3 right-4 bg-yellow-400 text-foreground px-3 py-1 rounded-full text-xs font-bold">
-                  POPULAR ⭐
-                </div>
-                <div className="text-white/80 text-sm font-body mb-2">3 LINKS BUNDLE</div>
-                <div className="flex items-baseline justify-center gap-2 mb-3">
-                  <span className="text-6xl font-heading font-bold text-white drop-shadow-lg">₹399</span>
-                </div>
-                <p className="text-white/90 text-sm font-body mb-2">₹133/link - Save 46%!</p>
-                <p className="text-white/80 text-xs font-body">Best for testing different pranks</p>
-              </div>
-              
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border-4 border-white/30 hover:scale-105 transition-all">
-                <div className="text-white/80 text-sm font-body mb-2">5 LINKS BUNDLE</div>
-                <div className="flex items-baseline justify-center gap-2 mb-3">
-                  <span className="text-5xl font-heading font-bold text-white drop-shadow-lg">₹549</span>
-                </div>
-                <p className="text-white/90 text-sm font-body mb-2">₹110/link - Save 55%!</p>
-                <p className="text-white/80 text-xs font-body">Ultimate value pack</p>
-              </div>
-            </div>
+              </>
+            )}
             
             <p className="text-white text-xl font-body mb-8 max-w-2xl mx-auto drop-shadow">
               Less than a coffee price = FOREVER memory for both of you! 💖✨
