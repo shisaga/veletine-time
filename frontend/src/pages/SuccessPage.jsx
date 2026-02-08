@@ -143,7 +143,7 @@ const SuccessPage = () => {
                 <Button
                   data-testid="share-btn"
                   onClick={shareLink}
-                  className="cartoon-border rounded-full font-heading font-bold bg-white hover:bg-gray-50 border-4"
+                  className="cartoon-border rounded-full font-heading font-bold bg-white hover:bg-gray-50 border-4 text-foreground"
                 >
                   <Share2 className="mr-2 h-4 w-4" />
                   Share 📤
@@ -156,7 +156,7 @@ const SuccessPage = () => {
             <a href={`/v/${valentineId}`} target="_blank" rel="noopener noreferrer">
               <Button
                 data-testid="preview-btn"
-                className="w-full cartoon-border rounded-full font-heading font-bold bg-white hover:bg-gray-50 border-4"
+                className="w-full cartoon-border rounded-full font-heading font-bold bg-white hover:bg-gray-50 border-4 text-foreground"
               >
                 <Heart className="mr-2 h-5 w-5 text-primary" />
                 Preview Your Valentine 👀

@@ -120,7 +120,7 @@ const EmotionalDamage = ({ valentine, onResponse }) => {
             onMouseEnter={handleNoHover}
             onMouseLeave={handleNoLeave}
             onClick={handleNoClick}
-            className="cartoon-border rounded-full px-14 py-7 text-2xl font-heading font-bold bg-white hover:bg-gray-50 border-4"
+            className="cartoon-border rounded-full px-14 py-7 text-2xl font-heading font-bold bg-white hover:bg-gray-50 border-4 text-foreground"
           >
             No
           </Button>

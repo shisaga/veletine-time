@@ -103,7 +103,7 @@ const GuiltTrip = ({ valentine, onResponse }) => {
             <Button
               data-testid="no-button"
               onClick={handleNoClick}
-              className="cartoon-border rounded-full px-14 py-7 text-2xl font-heading font-bold bg-white hover:bg-gray-50 border-4"
+              className="cartoon-border rounded-full px-14 py-7 text-2xl font-heading font-bold bg-white hover:bg-gray-50 border-4 text-foreground"
               disabled={noClicks >= messages.length - 1}
             >
               No
