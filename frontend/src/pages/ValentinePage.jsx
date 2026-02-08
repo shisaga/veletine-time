@@ -107,12 +107,12 @@ const ValentinePage = () => {
   
   if (response === 'yes') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-rose-100 via-pink-100 to-red-100 flex items-center justify-center relative overflow-hidden">
+      <div className="min-h-screen cartoon-bg flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute text-4xl"
+              className="absolute text-5xl"
               initial={{ 
                 x: Math.random() * window.innerWidth,
                 y: -50,
@@ -140,7 +140,7 @@ const ValentinePage = () => {
           className="relative z-10 text-center px-4"
         >
           <motion.div
-            animate={{ scale: [1, 1.2, 1] }}
+            animate={{ scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] }}
             transition={{ duration: 1, repeat: Infinity }}
             className="text-9xl mb-8"
           >
@@ -148,21 +148,34 @@ const ValentinePage = () => {
           </motion.div>
           
           <h1 className="text-5xl lg:text-7xl font-heading font-bold text-foreground mb-6">
-            Yay! They said <span className="text-primary italic">YES!</span>
+            Yay! They said <span className="text-primary wiggle inline-block">YES!</span> 🎉
           </h1>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-floating max-w-lg mx-auto"
+            className="bg-white rounded-[3rem] p-8 shadow-cartoon border-4 border-foreground/10 max-w-lg mx-auto"
           >
-            <p className="text-xl font-body text-foreground mb-4">
+            <p className="text-2xl font-body text-foreground mb-4">
               "{valentine.message}"
             </p>
-            <p className="text-foreground/70 font-body">
+            <p className="text-xl text-foreground/70 font-heading font-semibold">
               - {valentine.from_name} 💖
             </p>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1 }}
+            className="mt-8"
+          >
+            <img 
+              src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/5nh57z2x_cartoongirl.png"
+              alt="Celebration"
+              className="h-48 w-48 mx-auto animate-bounce"
+            />
           </motion.div>
         </motion.div>
       </div>
