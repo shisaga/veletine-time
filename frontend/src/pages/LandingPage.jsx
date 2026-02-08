@@ -72,7 +72,7 @@ const LandingPage = () => {
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/30 to-accent/30 rounded-[3rem] blur-2xl animate-pulse"></div>
               <div className="relative bg-white rounded-[3rem] p-8 shadow-cartoon">
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/5nh57z2x_cartoongirl.png" 
+                  src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/04tdjn8i_adventure.png" 
                   alt="Happy cartoon couple"
                   className="w-full h-auto mx-auto"
                   style={{ maxHeight: '400px', objectFit: 'contain' }}
@@ -82,6 +82,13 @@ const LandingPage = () => {
                 </div>
                 <div className="absolute -top-4 -left-4 bg-white rounded-3xl p-4 shadow-cartoon wiggle">
                   <p className="text-4xl">✨</p>
+                </div>
+                <div className="absolute top-1/2 -left-6 transform -translate-y-1/2">
+                  <img 
+                    src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/e5xd1fq7_fly.png"
+                    alt="Flying character"
+                    className="h-20 w-20 animate-bounce"
+                  />
                 </div>
               </div>
             </div>
