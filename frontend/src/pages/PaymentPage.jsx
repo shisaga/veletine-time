@@ -167,7 +167,7 @@ const PaymentPage = () => {
             data-testid="pay-now-btn"
             onClick={handlePayment}
             disabled={processing}
-            className="w-full cartoon-border rounded-full py-7 text-xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-105 transition-all"
+            className="w-full cartoon-border rounded-full py-7 text-xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-105 transition-all text-white"
           >
             <CreditCard className="mr-2 h-6 w-6" />
             {processing ? 'Processing... ⏳' : 'Pay ₹15 Now 💳'}

@@ -166,7 +166,7 @@ const SuccessPage = () => {
             <Link to="/dashboard">
               <Button
                 data-testid="back-dashboard-btn"
-                className="w-full rounded-full font-heading font-bold bg-primary hover:bg-primary/90"
+                className="w-full rounded-full font-heading font-bold bg-primary hover:bg-primary/90 text-white"
               >
                 Back to Dashboard 🏠
               </Button>

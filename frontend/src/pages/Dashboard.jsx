@@ -91,7 +91,7 @@ const Dashboard = () => {
               <p className="text-foreground/70 font-body text-lg">Create and manage your love pranks!</p>
             </div>
             <Link to="/create">
-              <Button data-testid="create-new-btn" size="lg" className="cartoon-border rounded-full px-8 py-6 text-xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating animate-pulse hover:scale-110 transition-all">
+              <Button data-testid="create-new-btn" size="lg" className="cartoon-border rounded-full px-8 py-6 text-xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating animate-pulse hover:scale-110 transition-all text-white">
                 <Plus className="mr-2 h-6 w-6" />
                 Create New ✨
               </Button>
@@ -113,7 +113,7 @@ const Dashboard = () => {
                 Create your first Valentine surprise and spread the love! 🎉
               </p>
               <Link to="/create">
-                <Button data-testid="create-first-btn" size="lg" className="cartoon-border rounded-full px-10 py-6 text-xl font-heading font-bold bg-primary hover:bg-primary/90">
+                <Button data-testid="create-first-btn" size="lg" className="cartoon-border rounded-full px-10 py-6 text-xl font-heading font-bold bg-primary hover:bg-primary/90 text-white">
                   Create Your First Valentine 💖
                 </Button>
               </Link>
@@ -192,7 +192,7 @@ const Dashboard = () => {
                     <Button 
                       data-testid={`complete-payment-${valentine.valentine_id}`}
                       onClick={() => navigate(`/payment/${valentine.valentine_id}`)}
-                      className="w-full rounded-full font-heading font-bold bg-primary hover:bg-primary/90"
+                      className="w-full rounded-full font-heading font-bold bg-primary hover:bg-primary/90 text-white"
                       size="sm"
                     >
                       Complete Payment ₹15 💳

@@ -22,7 +22,7 @@ const LandingPage = () => {
             <span className="text-3xl font-heading font-bold text-foreground">Cupid's Prank</span>
           </div>
           <Link to="/login">
-            <Button data-testid="header-login-btn" className="cartoon-border rounded-full px-6 py-3 bg-primary hover:bg-primary/90 font-heading font-bold text-lg">
+            <Button data-testid="header-login-btn" className="cartoon-border rounded-full px-6 py-3 bg-primary hover:bg-primary/90 font-heading font-bold text-lg text-white">
               Sign In
             </Button>
           </Link>
@@ -47,7 +47,7 @@ const LandingPage = () => {
                   <Button 
                     data-testid="get-started-btn" 
                     size="lg" 
-                    className="cartoon-border rounded-full px-10 py-6 text-xl font-heading font-bold bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-floating"
+                    className="cartoon-border rounded-full px-10 py-6 text-xl font-heading font-bold bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-floating text-white"
                   >
                     Get Started
                     <Sparkles className="ml-2 h-6 w-6" />
