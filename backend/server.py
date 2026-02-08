@@ -393,6 +393,21 @@ async def record_valentine_response(valentine_id: str, response_data: ValentineR
         }}
     )
     
+    # Send email notification to creator
+    try:
+        # Get creator's email
+        creator = await db.users.find_one({"user_id": valentine["user_id"]}, {"_id": 0})
+        if creator and creator.get("email"):
+            await send_response_notification(
+                creator_email=creator["email"],
+                creator_name=valentine["from_name"],
+                to_name=valentine["to_name"],
+                response=response_data.response,
+                valentine_id=valentine_id
+            )
+    except Exception as e:
+        logger.error(f"Failed to send response notification email: {e}")
+    
     return {"message": "Response recorded"}
 
 # Payment routes
