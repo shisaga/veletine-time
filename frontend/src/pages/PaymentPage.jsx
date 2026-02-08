@@ -32,7 +32,7 @@ const PaymentPage = () => {
       }
     } catch (error) {
       console.error('Error fetching valentine:', error);
-      toast.error('Valentine not found');
+      toast.error('Valentine not found!');
     } finally {
       setLoading(false);
     }
@@ -82,7 +82,7 @@ const PaymentPage = () => {
               { withCredentials: true }
             );
             
-            toast.success('Payment successful!');
+            toast.success('Payment successful! 🎉');
             navigate(`/success/${valentineId}`);
           } catch (error) {
             console.error('Verification error:', error);
@@ -90,7 +90,7 @@ const PaymentPage = () => {
           }
         },
         theme: {
-          color: '#E11D48'
+          color: '#FF6B9D'
         }
       };
       
@@ -106,45 +106,47 @@ const PaymentPage = () => {
   
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="min-h-screen flex items-center justify-center cartoon-bg">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-foreground font-body">Loading...</p>
+          <div className="text-8xl mb-6 animate-bounce">💖</div>
+          <p className="text-2xl text-foreground font-heading font-bold">Loading...</p>
         </div>
       </div>
     );
   }
   
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden flex items-center justify-center">
-      <div className="absolute inset-0 paper-texture"></div>
-      
+    <div className="min-h-screen cartoon-bg relative overflow-hidden flex items-center justify-center">
       <div className="relative z-10 w-full max-w-md px-4">
-        <div className="bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl p-10 shadow-floating">
+        <div className="bg-white rounded-[3rem] p-10 shadow-cartoon border-4 border-foreground/10">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center h-16 w-16 bg-primary/10 rounded-2xl mb-4">
-              <Heart className="h-8 w-8 text-primary fill-primary" />
+            <div className="inline-flex items-center justify-center mb-4">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/eye8k9ce_lincoln.png"
+                alt="Cupid"
+                className="h-24 w-24 animate-bounce"
+              />
             </div>
-            <h1 className="text-3xl font-heading font-bold text-foreground mb-2">
-              Almost There!
+            <h1 className="text-4xl font-heading font-bold text-foreground mb-2">
+              Almost There! 🎉
             </h1>
-            <p className="text-foreground/70 font-body">
-              Complete payment to get your shareable link
+            <p className="text-lg text-foreground/70 font-body">
+              Just one more step to create magic!
             </p>
           </div>
           
           {valentine && (
-            <div className="bg-secondary/30 rounded-2xl p-6 mb-8">
-              <div className="space-y-2 mb-4">
-                <div className="flex justify-between text-sm">
+            <div className="bg-gradient-to-br from-secondary/50 to-accent/30 rounded-3xl p-6 mb-8 border-4 border-foreground/10">
+              <div className="space-y-3 mb-4">
+                <div className="flex justify-between items-center">
                   <span className="text-foreground/70 font-body">To:</span>
-                  <span className="text-foreground font-body font-semibold">{valentine.to_name}</span>
+                  <span className="text-foreground font-heading font-bold text-lg">{valentine.to_name} 💕</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="flex justify-between items-center">
                   <span className="text-foreground/70 font-body">From:</span>
-                  <span className="text-foreground font-body font-semibold">{valentine.from_name}</span>
+                  <span className="text-foreground font-heading font-bold text-lg">{valentine.from_name}</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="flex justify-between items-center">
                   <span className="text-foreground/70 font-body">Template:</span>
                   <span className="text-foreground font-body font-semibold capitalize">
                     {valentine.template_id.replace('_', ' ')}
@@ -152,10 +154,10 @@ const PaymentPage = () => {
                 </div>
               </div>
               
-              <div className="border-t border-border pt-4">
+              <div className="border-t-4 border-foreground/10 pt-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-heading font-semibold text-foreground">Total</span>
-                  <span className="text-3xl font-heading font-bold text-primary">₹15</span>
+                  <span className="text-2xl font-heading font-bold text-foreground">Total</span>
+                  <span className="text-5xl font-heading font-bold text-primary">₹15</span>
                 </div>
               </div>
             </div>
@@ -165,14 +167,14 @@ const PaymentPage = () => {
             data-testid="pay-now-btn"
             onClick={handlePayment}
             disabled={processing}
-            className="w-full rounded-full py-6 text-lg shadow-soft hover:shadow-floating transition-all"
+            className="w-full cartoon-border rounded-full py-7 text-xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-105 transition-all"
           >
-            <CreditCard className="mr-2 h-5 w-5" />
-            {processing ? 'Processing...' : 'Pay ₹15 Now'}
+            <CreditCard className="mr-2 h-6 w-6" />
+            {processing ? 'Processing... ⏳' : 'Pay ₹15 Now 💳'}
           </Button>
           
           <p className="text-center text-xs text-foreground/60 font-body mt-6">
-            Secure payment powered by Razorpay
+            🔒 Secure payment powered by Razorpay
           </p>
         </div>
       </div>
