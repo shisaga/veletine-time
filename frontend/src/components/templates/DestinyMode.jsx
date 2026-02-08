@@ -54,7 +54,6 @@ const DestinyMode = ({ valentine, onResponse }) => {
           </motion.div>
         ) : result ? (
           <motion.div
-            key="result"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             className="text-center max-w-2xl"
@@ -65,20 +64,24 @@ const DestinyMode = ({ valentine, onResponse }) => {
                 rotate: [0, 10, -10, 0]
               }}
               transition={{ duration: 0.5 }}
-              className="text-8xl mb-8"
+              className="mb-8"
             >
-              ✨
+              <img 
+                src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/e5xd1fq7_fly.png"
+                alt="Flying cupid"
+                className="h-40 w-40 mx-auto"
+              />
             </motion.div>
             
-            <div className="bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl p-10 shadow-floating mb-8">
-              <Sparkles className="h-12 w-12 text-primary mx-auto mb-6" />
+            <div className="bg-gradient-to-br from-primary/20 to-accent/20 rounded-[3rem] p-10 shadow-cartoon mb-8 border-4 border-foreground/10">
+              <div className="text-6xl mb-6">✨</div>
               <h2 className="text-4xl font-heading font-bold text-foreground mb-4">
                 Destiny Has Spoken!
               </h2>
-              <p className="text-2xl text-primary font-accent mb-6">
+              <p className="text-3xl text-primary font-accent mb-6">
                 You are meant to say YES 💖
               </p>
-              <p className="text-foreground/70 font-body">
+              <p className="text-foreground/70 font-body text-lg">
                 The stars have aligned. The universe has decided. Your fate is sealed.
               </p>
             </div>
@@ -87,9 +90,9 @@ const DestinyMode = ({ valentine, onResponse }) => {
               data-testid="yes-button-destiny"
               onClick={() => onResponse('yes')}
               size="lg"
-              className="rounded-full px-16 py-8 text-2xl shadow-floating hover:scale-110 transition-all animate-pulse"
+              className="cartoon-border rounded-full px-20 py-8 text-3xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-110 transition-all animate-pulse"
             >
-              <Heart className="mr-3 h-8 w-8 fill-white" />
+              <Heart className="mr-3 h-10 w-10 fill-white" />
               Accept Destiny 💕
             </Button>
           </motion.div>
