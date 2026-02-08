@@ -12,15 +12,19 @@ class ValentineAPITester:
         self.tests_passed = 0
         self.valentine_id = None
 
-    def run_test(self, name, method, endpoint, expected_status, data=None, headers=None):
+    def run_test(self, name, method, endpoint, expected_status, data=None, headers=None, use_cookies=True):
         """Run a single API test"""
         url = f"{self.base_url}/{endpoint}"
         test_headers = {'Content-Type': 'application/json'}
         
         if headers:
             test_headers.update(headers)
-            
-        if self.session_token and 'Authorization' not in test_headers:
+        
+        # Use cookies for auth instead of Authorization header
+        cookies = {}
+        if self.session_token and use_cookies:
+            cookies['session_token'] = self.session_token
+        elif self.session_token and not use_cookies:
             test_headers['Authorization'] = f'Bearer {self.session_token}'
 
         self.tests_run += 1
@@ -29,13 +33,13 @@ class ValentineAPITester:
         
         try:
             if method == 'GET':
-                response = requests.get(url, headers=test_headers)
+                response = requests.get(url, headers=test_headers, cookies=cookies)
             elif method == 'POST':
-                response = requests.post(url, json=data, headers=test_headers)
+                response = requests.post(url, json=data, headers=test_headers, cookies=cookies)
             elif method == 'PUT':
-                response = requests.put(url, json=data, headers=test_headers)
+                response = requests.put(url, json=data, headers=test_headers, cookies=cookies)
             elif method == 'DELETE':
-                response = requests.delete(url, headers=test_headers)
+                response = requests.delete(url, headers=test_headers, cookies=cookies)
 
             success = response.status_code == expected_status
             if success:
