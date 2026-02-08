@@ -222,11 +222,11 @@ const PaymentPage = () => {
               <div className="border-t-4 border-foreground/10 pt-4">
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-heading font-bold text-foreground">Total</span>
-                  <span className="text-5xl font-heading font-bold text-primary">₹{bundles[selectedBundle].price}</span>
+                  <span className="text-5xl font-heading font-bold text-primary">{pricing.symbol}{pricing.bundles[selectedBundle].price}</span>
                 </div>
-                {bundles[selectedBundle].links > 1 && (
+                {pricing.bundles[selectedBundle].links > 1 && (
                   <p className="text-sm text-foreground/60 font-body text-right mt-2">
-                    You'll get {bundles[selectedBundle].links} links total!
+                    You'll get {pricing.bundles[selectedBundle].links} links total!
                   </p>
                 )}
               </div>
