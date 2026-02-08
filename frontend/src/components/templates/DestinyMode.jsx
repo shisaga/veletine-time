@@ -94,7 +94,7 @@ const DestinyMode = ({ valentine, onResponse }) => {
               data-testid="yes-button-destiny"
               onClick={() => onResponse('yes')}
               size="lg"
-              className="cartoon-border rounded-full px-20 py-8 text-3xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-110 transition-all animate-pulse"
+              className="cartoon-border rounded-full px-20 py-8 text-3xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-110 transition-all animate-pulse text-white"
             >
               <Heart className="mr-3 h-10 w-10 fill-white" />
               Accept Destiny 💕
