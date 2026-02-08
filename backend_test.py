@@ -113,7 +113,8 @@ print('✅ Test user created successfully');
             "Get Templates",
             "GET",
             "templates",
-            200
+            200,
+            use_cookies=False  # Templates endpoint doesn't require auth
         )
         
         if success and isinstance(response, list):
