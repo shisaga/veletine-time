@@ -53,6 +53,15 @@ const LandingPage = () => {
                     <Sparkles className="ml-2 h-6 w-6" />
                   </Button>
                 </Link>
+                <a href="/v/demo" target="_blank" rel="noopener noreferrer">
+                  <Button 
+                    data-testid="try-demo-btn" 
+                    size="lg" 
+                    className="cartoon-border rounded-full px-10 py-6 text-xl font-heading font-bold bg-white hover:bg-gray-50 text-foreground border-4"
+                  >
+                    Try Demo 👀
+                  </Button>
+                </a>
               </div>
               <div className="flex items-center gap-4 pt-4">
                 <div className="flex -space-x-2">
