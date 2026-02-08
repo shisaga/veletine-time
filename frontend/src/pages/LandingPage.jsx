@@ -144,38 +144,56 @@ const LandingPage = () => {
             </div>
           </section>
           
-          <section className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary via-pink-400 to-purple-500 rounded-[3rem] shadow-cartoon"></div>
-            <div className="relative bg-gradient-to-br from-primary via-pink-400 to-purple-500 rounded-[3rem] p-12 text-center shadow-cartoon border-4 border-foreground/20">
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-                <img 
-                  src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/eye8k9ce_lincoln.png"
-                  alt="Cupid"
-                  className="h-24 w-24 animate-bounce"
-                />
+          <section className="bg-gradient-to-br from-primary to-accent rounded-3xl p-12 text-center shadow-floating">
+            <Zap className="h-20 w-20 text-white mx-auto mb-6 drop-shadow-lg" />
+            <h2 className="text-5xl font-heading font-bold text-white mb-4 drop-shadow-lg">
+              Valentine's Special! 💝
+            </h2>
+            
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border-4 border-white/30 hover:scale-105 transition-all">
+                <div className="text-white/80 text-sm font-body mb-2">SINGLE</div>
+                <div className="flex items-baseline justify-center gap-2 mb-3">
+                  <span className="text-5xl font-heading font-bold text-white drop-shadow-lg">₹249</span>
+                  <span className="text-lg text-white/80 font-body">/ link</span>
+                </div>
+                <p className="text-white/90 text-sm font-body">Perfect for that special someone</p>
               </div>
               
-              <Zap className="h-20 w-20 text-white mx-auto mb-6 mt-8 drop-shadow-lg" />
-              <h2 className="text-5xl font-heading font-bold text-white mb-4 drop-shadow-lg">
-                Valentine's Special! 💝
-              </h2>
-              <div className="flex items-baseline justify-center gap-2 mb-6">
-                <span className="text-7xl font-heading font-bold text-white drop-shadow-lg">₹15</span>
-                <span className="text-2xl text-white/90 font-body">/ link</span>
+              <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-6 border-4 border-white/50 hover:scale-105 transition-all relative">
+                <div className="absolute -top-3 right-4 bg-yellow-400 text-foreground px-3 py-1 rounded-full text-xs font-bold">
+                  POPULAR ⭐
+                </div>
+                <div className="text-white/80 text-sm font-body mb-2">3 LINKS BUNDLE</div>
+                <div className="flex items-baseline justify-center gap-2 mb-3">
+                  <span className="text-6xl font-heading font-bold text-white drop-shadow-lg">₹399</span>
+                </div>
+                <p className="text-white/90 text-sm font-body mb-2">₹133/link - Save 46%!</p>
+                <p className="text-white/80 text-xs font-body">Best for testing different pranks</p>
               </div>
-              <p className="text-white text-xl font-body mb-8 max-w-2xl mx-auto drop-shadow">
-                One coffee for you = a FOREVER memory for both of you! 💖✨
-              </p>
-              <Link to="/login">
-                <Button 
-                  data-testid="cta-create-btn"
-                  size="lg" 
-                  className="bg-white text-primary hover:bg-white/90 rounded-full px-12 py-7 text-2xl font-heading font-bold shadow-cartoon hover:scale-110 transition-all"
-                >
-                  Create Your Valentine Surprise! 🎁
-                </Button>
-              </Link>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border-4 border-white/30 hover:scale-105 transition-all">
+                <div className="text-white/80 text-sm font-body mb-2">5 LINKS BUNDLE</div>
+                <div className="flex items-baseline justify-center gap-2 mb-3">
+                  <span className="text-5xl font-heading font-bold text-white drop-shadow-lg">₹549</span>
+                </div>
+                <p className="text-white/90 text-sm font-body mb-2">₹110/link - Save 55%!</p>
+                <p className="text-white/80 text-xs font-body">Ultimate value pack</p>
+              </div>
             </div>
+            
+            <p className="text-white text-xl font-body mb-8 max-w-2xl mx-auto drop-shadow">
+              Less than a coffee price = FOREVER memory for both of you! 💖✨
+            </p>
+            <Link to="/login">
+              <Button 
+                data-testid="cta-create-btn"
+                size="lg" 
+                className="bg-white text-primary hover:bg-white/90 rounded-full px-12 py-7 text-2xl font-heading font-bold shadow-cartoon hover:scale-110 transition-all text-primary"
+              >
+                Create Your Valentine Surprise! 🎁
+              </Button>
+            </Link>
           </section>
         </main>
         
