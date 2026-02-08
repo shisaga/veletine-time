@@ -193,9 +193,7 @@ const ValentinePage = () => {
   const TemplateComponent = templateComponents[valentine.template_id];
   
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
-      <div className="absolute inset-0 paper-texture"></div>
-      
+    <div className="min-h-screen cartoon-bg relative overflow-hidden">
       {TemplateComponent && (
         <TemplateComponent
           valentine={valentine}
