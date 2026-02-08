@@ -240,7 +240,7 @@ const PaymentPage = () => {
             className="w-full cartoon-border rounded-full py-7 text-xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-105 transition-all text-white"
           >
             <CreditCard className="mr-2 h-6 w-6" />
-            {processing ? 'Processing... ⏳' : `Pay ₹${bundles[selectedBundle].price} Now 💳`}
+            {processing ? 'Processing... ⏳' : `Pay ${pricing.symbol}${pricing.bundles[selectedBundle].price} Now 💳`}
           </Button>
           
           <p className="text-center text-xs text-foreground/60 font-body mt-6">
