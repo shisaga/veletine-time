@@ -210,6 +210,14 @@ async def create_session(request: Request, response: Response):
     )
     
     user_doc = await db.users.find_one({"user_id": user_id}, {"_id": 0})
+    
+    # Send welcome email to new users (don't await to avoid blocking)
+    if not existing_user:
+        try:
+            await send_welcome_email(data["email"], data["name"])
+        except Exception as e:
+            logger.error(f"Failed to send welcome email: {e}")
+    
     return user_doc
 
 @api_router.get("/auth/me")
