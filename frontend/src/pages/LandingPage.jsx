@@ -138,7 +138,7 @@ const LandingPage = () => {
                 </div>
                 <h3 className="text-2xl font-heading font-bold text-foreground mb-3 text-center">Share Link</h3>
                 <p className="text-foreground/70 font-body leading-relaxed text-center">
-                  Pay just ₹15, get your link & watch the FUN unfold! 🎊
+                  Pay just ₹249 (or get bundles for better value!), get your link & watch the FUN! 🎊
                 </p>
               </div>
             </div>
