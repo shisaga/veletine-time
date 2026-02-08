@@ -30,9 +30,13 @@ const DestinyMode = ({ valentine, onResponse }) => {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              className="text-8xl mb-8"
+              className="mb-8"
             >
-              🔮
+              <img 
+                src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/rfm1jq7q_image.png"
+                alt="Checking destiny"
+                className="h-40 w-40 mx-auto"
+              />
             </motion.div>
             
             <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
