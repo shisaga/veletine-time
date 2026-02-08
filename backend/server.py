@@ -82,6 +82,7 @@ class PaymentCreate(BaseModel):
     valentine_id: str
     amount: int
     currency: str
+    bundle_type: Optional[str] = "single"  # single, bundle_3, bundle_5
 
 class PaymentVerify(BaseModel):
     razorpay_order_id: str
