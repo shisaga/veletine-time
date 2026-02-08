@@ -24,11 +24,19 @@ const LandingPage = () => {
   
   const fetchPricing = async () => {
     try {
-      const response = await axios.get(`${BACKEND_URL}/api/payment/pricing`);
+      // Get user's timezone from browser
+      const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      
+      const response = await axios.post(`${BACKEND_URL}/api/payment/pricing`, {
+        timezone: userTimezone
+      });
+      
       setPricing({
         symbol: response.data.symbol,
         prices: response.data.prices,
-        currency: response.data.currency
+        currency: response.data.currency,
+        region: response.data.region,
+        timezone: response.data.timezone
       });
     } catch (error) {
       console.error('Error fetching pricing:', error);
