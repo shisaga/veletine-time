@@ -9,9 +9,7 @@ const LoginPage = () => {
   };
   
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden flex items-center justify-center">
-      <div className="absolute inset-0 paper-texture"></div>
-      
+    <div className="min-h-screen cartoon-bg relative overflow-hidden flex items-center justify-center">
       <div className="floating-hearts">
         <div className="heart" style={{animationDelay: '0s'}}>💕</div>
         <div className="heart" style={{animationDelay: '2s'}}>💖</div>
@@ -21,25 +19,29 @@ const LoginPage = () => {
       </div>
       
       <div className="relative z-10 w-full max-w-md px-4">
-        <div className="bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl p-10 shadow-floating">
+        <div className="bg-white rounded-[3rem] p-10 shadow-cartoon border-4 border-foreground/10">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center h-16 w-16 bg-primary/10 rounded-2xl mb-4">
-              <Heart className="h-8 w-8 text-primary fill-primary" />
+            <div className="inline-flex items-center justify-center mb-4">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/5ct5s4a8_image.png"
+                alt="Cupid"
+                className="h-32 w-32 animate-bounce"
+              />
             </div>
-            <h1 className="text-3xl font-heading font-bold text-foreground mb-2">
-              Welcome to <span className="text-primary italic">Cupid's Prank</span>
+            <h1 className="text-4xl font-heading font-bold text-foreground mb-2">
+              Welcome! 💖
             </h1>
-            <p className="text-foreground/70 font-body">
-              Sign in to create your Valentine surprise
+            <p className="text-xl text-foreground/70 font-body">
+              Sign in to create your <span className="text-primary font-bold">Valentine surprise!</span>
             </p>
           </div>
           
           <Button
             data-testid="google-login-btn"
             onClick={handleGoogleLogin}
-            className="w-full rounded-full py-6 text-lg shadow-soft hover:shadow-floating transition-all duration-300"
+            className="w-full cartoon-border rounded-full py-7 text-xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-105 transition-all"
           >
-            <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 mr-3" viewBox="0 0 24 24">
               <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
               <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
               <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
@@ -49,7 +51,7 @@ const LoginPage = () => {
           </Button>
           
           <p className="text-center text-sm text-foreground/60 font-body mt-6">
-            By continuing, you agree to create adorable memories
+            By continuing, you agree to spread LOVE everywhere! 💕
           </p>
         </div>
       </div>
