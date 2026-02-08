@@ -304,6 +304,25 @@ async def get_user_valentines(
 @api_router.get("/valentines/{valentine_id}")
 async def get_valentine_by_id(valentine_id: str):
     """Get a specific valentine by ID (public route for receivers)"""
+    # Handle demo valentine
+    if valentine_id == "demo":
+        return {
+            "valentine_id": "demo",
+            "user_id": "demo_user",
+            "template_id": "runaway_no",
+            "from_name": "Alex",
+            "to_name": "You",
+            "message": "I've been wanting to ask you this for so long... Will you be my Valentine? 💕",
+            "emoji_style": "cute",
+            "background_theme": "pink",
+            "unique_link": "demo",
+            "payment_status": "completed",
+            "payment_id": "demo_payment",
+            "response": None,
+            "response_at": None,
+            "created_at": datetime.now(timezone.utc)
+        }
+    
     valentine = await db.valentines.find_one({"valentine_id": valentine_id}, {"_id": 0})
     if not valentine:
         raise HTTPException(status_code=404, detail="Valentine not found")
