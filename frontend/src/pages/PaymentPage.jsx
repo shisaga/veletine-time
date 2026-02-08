@@ -15,17 +15,38 @@ const PaymentPage = () => {
   const [loading, setLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
   const [selectedBundle, setSelectedBundle] = useState('single');
-  
-  const bundles = {
-    single: { price: 249, name: 'Single Link', links: 1, savings: 0 },
-    bundle_3: { price: 399, name: '3 Links Bundle', links: 3, savings: 46, popular: true },
-    bundle_5: { price: 549, name: '5 Links Bundle', links: 5, savings: 55 }
-  };
+  const [pricing, setPricing] = useState({
+    symbol: '₹',
+    currency: 'INR',
+    bundles: {
+      single: { price: 9.99, name: 'Single Link', links: 1, savings: 0 },
+      bundle_3: { price: 24.99, name: '3 Links Bundle', links: 3, savings: 16, popular: true },
+      bundle_5: { price: 34.99, name: '5 Links Bundle', links: 5, savings: 30 }
+    }
+  });
   
   useEffect(() => {
+    fetchPricing();
     fetchValentine();
     loadRazorpayScript();
   }, [valentineId]);
+  
+  const fetchPricing = async () => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/api/payment/pricing`);
+      setPricing({
+        symbol: response.data.symbol,
+        currency: response.data.currency,
+        bundles: {
+          single: { price: response.data.prices.single, name: 'Single Link', links: 1, savings: 0 },
+          bundle_3: { price: response.data.prices.bundle_3, name: '3 Links Bundle', links: 3, savings: 16, popular: true },
+          bundle_5: { price: response.data.prices.bundle_5, name: '5 Links Bundle', links: 5, savings: 30 }
+        }
+      });
+    } catch (error) {
+      console.error('Error fetching pricing:', error);
+    }
+  };
   
   const fetchValentine = async () => {
     try {
