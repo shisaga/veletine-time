@@ -84,8 +84,8 @@ const PaymentPage = () => {
         `${BACKEND_URL}/api/payment/create-order`,
         {
           valentine_id: valentineId,
-          amount: bundles[selectedBundle].price,
-          currency: 'INR',
+          amount: pricing.bundles[selectedBundle].price,
+          currency: pricing.currency,
           bundle_type: selectedBundle
         },
         { withCredentials: true }
@@ -97,7 +97,7 @@ const PaymentPage = () => {
         currency: orderResponse.data.currency,
         order_id: orderResponse.data.order_id,
         name: "Cupid's Prank",
-        description: bundles[selectedBundle].name,
+        description: pricing.bundles[selectedBundle].name,
         handler: async function (response) {
           try {
             await axios.post(
