@@ -85,7 +85,7 @@ const CreateValentine = () => {
           <Button 
             data-testid="back-btn"
             onClick={() => navigate('/dashboard')} 
-            className="cartoon-border rounded-full h-14 w-14 p-0 bg-white hover:bg-gray-50"
+            className="cartoon-border rounded-full h-14 w-14 p-0 bg-white hover:bg-gray-50 text-foreground"
           >
             <ArrowLeft className="h-6 w-6" />
           </Button>
@@ -189,7 +189,7 @@ const CreateValentine = () => {
               type="submit"
               size="lg"
               disabled={loading}
-              className="w-full cartoon-border rounded-full py-7 text-2xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-105 transition-all"
+              className="w-full cartoon-border rounded-full py-7 text-2xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating hover:scale-105 transition-all text-white"
             >
               {loading ? 'Creating... ⏳' : 'Continue to Payment ₹15 💖'}
             </Button>
