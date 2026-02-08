@@ -33,10 +33,17 @@ const PaymentPage = () => {
   
   const fetchPricing = async () => {
     try {
-      const response = await axios.get(`${BACKEND_URL}/api/payment/pricing`);
+      // Get user's timezone from browser
+      const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      
+      const response = await axios.post(`${BACKEND_URL}/api/payment/pricing`, {
+        timezone: userTimezone
+      });
+      
       setPricing({
         symbol: response.data.symbol,
         currency: response.data.currency,
+        timezone: userTimezone,
         bundles: {
           single: { price: response.data.prices.single, name: 'Single Link', links: 1, savings: 0 },
           bundle_3: { price: response.data.prices.bundle_3, name: '3 Links Bundle', links: 3, savings: 16, popular: true },
