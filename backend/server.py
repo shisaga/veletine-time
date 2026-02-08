@@ -357,16 +357,29 @@ async def record_valentine_response(valentine_id: str, response_data: ValentineR
 async def create_payment_order(payment_data: PaymentCreate):
     """Create Razorpay order"""
     try:
+        # Pricing in INR
+        pricing = {
+            "single": 249,
+            "bundle_3": 399,
+            "bundle_5": 549
+        }
+        
+        amount = pricing.get(payment_data.bundle_type, 249)
+        
         order_data = {
-            "amount": payment_data.amount * 100,
+            "amount": amount * 100,  # Razorpay expects amount in paise
             "currency": payment_data.currency,
             "receipt": payment_data.valentine_id,
+            "notes": {
+                "bundle_type": payment_data.bundle_type
+            }
         }
         order = razorpay_client.order.create(data=order_data)
         return {
             "order_id": order["id"],
             "amount": order["amount"],
-            "currency": order["currency"]
+            "currency": order["currency"],
+            "bundle_type": payment_data.bundle_type
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
