@@ -57,7 +57,9 @@ const LandingPage = () => {
               <div className="flex items-center gap-4 pt-4">
                 <div className="flex -space-x-2">
                   <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/hkh1cha6_face1.svg" alt="Character" className="h-12 w-12 rounded-full border-4 border-white shadow-md" />
-                  <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/pe4f1zhh_face4.svg" alt="Character" className="h-12 w-12 rounded-full border-4 border-white shadow-md" />
+                  <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/v6n5belr_face2.svg" alt="Character" className="h-12 w-12 rounded-full border-4 border-white shadow-md" />
+                  <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/xf1uempv_face3.svg" alt="Character" className="h-12 w-12 rounded-full border-4 border-white shadow-md" />
+                  <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/9fqt9wyl_face4.svg" alt="Character" className="h-12 w-12 rounded-full border-4 border-white shadow-md" />
                   <div className="h-12 w-12 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 border-4 border-white shadow-md flex items-center justify-center text-white font-bold">+</div>
                 </div>
                 <p className="text-sm text-foreground/70 font-body">
