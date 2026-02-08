@@ -23,9 +23,9 @@ const LoginPage = () => {
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center mb-4">
               <img 
-                src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/5ct5s4a8_image.png"
-                alt="Cupid"
-                className="h-32 w-32 animate-bounce"
+                src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/3lq311c1_spacemanreadingmap-in-space-space.png"
+                alt="Spaceman"
+                className="h-40 w-40 animate-bounce"
               />
             </div>
             <h1 className="text-4xl font-heading font-bold text-foreground mb-2">
