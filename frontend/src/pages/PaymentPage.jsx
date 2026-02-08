@@ -93,7 +93,8 @@ const PaymentPage = () => {
           valentine_id: valentineId,
           amount: pricing.bundles[selectedBundle].price,
           currency: pricing.currency,
-          bundle_type: selectedBundle
+          bundle_type: selectedBundle,
+          timezone: pricing.timezone
         },
         { withCredentials: true }
       );
