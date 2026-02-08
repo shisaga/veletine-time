@@ -1,0 +1,138 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "Cupid's Prank",
+      "persona": "E1: The Anti-AI Designer",
+      "vibe": "Playful Romance, Digital Scrapbook, Elegant Mischief",
+      "theme_mode": "light",
+      "emotional_tone": "Warm, Intimate, Fun, Slightly Chaotic (Prank aspect)"
+    },
+    "typography": {
+      "font_family": {
+        "headings": "Playfair Display, serif",
+        "body": "Outfit, sans-serif",
+        "accents": "Caveat, cursive"
+      },
+      "google_fonts_import": "https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap",
+      "usage_rules": {
+        "headings": "Use Playfair Display for all H1-H3. Italicize key emotional words for emphasis.",
+        "body": "Use Outfit for all UI text, forms, and descriptions. Keep it clean and legible.",
+        "accents": "Use Caveat for 'handwritten' notes, tooltips, and the 'Prank' labels. Rotate these elements slightly (-2deg to 2deg) to feel organic."
+      }
+    },
+    "colors": {
+      "palette": {
+        "primary": "#E11D48",
+        "primary_foreground": "#FFFFFF",
+        "secondary": "#FFE4E6",
+        "secondary_foreground": "#881337",
+        "background": "#FFF1F2",
+        "foreground": "#4C0519",
+        "card": "#FFFFFF",
+        "card_foreground": "#4C0519",
+        "accent": "#F43F5E",
+        "border": "#FECDD3",
+        "input": "#FFE4E6",
+        "ring": "#E11D48"
+      },
+      "gradients": {
+        "hero_overlay": "linear-gradient(to bottom, rgba(255, 241, 242, 0) 0%, #FFF1F2 100%)",
+        "button_shine": "linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.3) 50%, transparent 75%)"
+      },
+      "usage": {
+        "background_strategy": "Use the 'background' color as the base. Overlay the 'paper_texture' image with opacity-50 and mix-blend-multiply for a tactile feel.",
+        "text_contrast": "Avoid pure black. Use deep burgundy (#4C0519) for high contrast text.",
+        "call_to_action": "Primary Red (#E11D48) with soft drop shadows (shadow-rose-300)."
+      }
+    },
+    "layout": {
+      "spacing_scale": "Generous. Use p-8 to p-12 for section padding. Use gap-6 for grids.",
+      "border_radius": {
+        "default": "0.75rem",
+        "buttons": "9999px",
+        "cards": "1rem"
+      },
+      "grid_strategy": "Asymmetric Bento Grids. Avoid perfect symmetry. Offset images and text blocks.",
+      "container_width": "max-w-6xl mx-auto px-4"
+    },
+    "visual_enhancers": {
+      "textures": {
+        "paper_overlay": "url('https://images.unsplash.com/photo-1711107759674-9161698e570d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHwxfHxwYXBlciUyMHRleHR1cmUlMjBjcmVhbSUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcwNTczMDMyfDA&ixlib=rb-4.1.0&q=85')",
+        "noise": "url('data:image/svg+xml,...')" 
+      },
+      "shadows": {
+        "soft": "0 4px 20px -2px rgba(225, 29, 72, 0.1)",
+        "floating": "0 10px 40px -10px rgba(225, 29, 72, 0.2)"
+      },
+      "decorations": [
+        "Floating hearts (CSS animation)",
+        "Torn paper edges (CSS mask or SVG)",
+        "Hand-drawn arrows (SVG)"
+      ]
+    },
+    "components": {
+      "buttons": {
+        "primary": "bg-primary text-white rounded-full px-8 py-3 font-medium shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300",
+        "secondary": "bg-white text-primary border-2 border-primary/20 rounded-full px-8 py-3 font-medium hover:bg-rose-50 transition-all"
+      },
+      "cards": {
+        "style": "bg-white/80 backdrop-blur-sm border border-white/50 shadow-soft rounded-2xl p-6 hover:shadow-floating transition-all duration-300",
+        "interactive": "cursor-pointer hover:-translate-y-1"
+      },
+      "inputs": {
+        "style": "bg-white border-rose-200 focus:border-rose-500 focus:ring-rose-200 rounded-xl h-12 px-4"
+      }
+    },
+    "assets": {
+      "images": {
+        "hero_couple": "https://images.unsplash.com/photo-1769674843865-c0cdaa8c5bab?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwxfHxyb21hbnRpYyUyMGNvdXBsZSUyMGxhdWdoaW5nJTIwc3Vuc2V0fGVufDB8fHx8MTc3MDU3MzAyN3ww&ixlib=rb-4.1.0&q=85",
+        "paper_texture": "https://images.unsplash.com/photo-1711107759674-9161698e570d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHwxfHxwYXBlciUyMHRleHR1cmUlMjBjcmVhbSUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcwNTczMDMyfDA&ixlib=rb-4.1.0&q=85",
+        "puppy_eyes": "https://images.unsplash.com/photo-1651044204351-f0a6aab96e3e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwxfHxjdXRlJTIwcHVwcHklMjBleWVzJTIwZG9nfGVufDB8fHx8MTc3MDU3MzAzNnww&ixlib=rb-4.1.0&q=85"
+      },
+      "icons": "Use Lucide React (Heart, Sparkles, Gift, Ghost for pranks)"
+    },
+    "motion": {
+      "libraries": ["framer-motion", "canvas-confetti"],
+      "animations": {
+        "runaway_button": "Use framer-motion to randomly translate X/Y on hover.",
+        "heart_beat": "Scale 1 to 1.1 infinite duration 0.8s.",
+        "page_transition": "Fade in + Slide up (y: 20 -> 0)."
+      }
+    },
+    "accessibility": {
+      "contrast_check": "Ensure rose-900 text is used on rose-50 backgrounds.",
+      "reduced_motion": "Disable runaway button effect if prefers-reduced-motion is true."
+    }
+  },
+  "instructions_to_main_agent": {
+    "setup": [
+      "Install fonts: Add Google Fonts link to index.html",
+      "Install dependencies: yarn add framer-motion canvas-confetti lucide-react",
+      "Configure Tailwind: Update tailwind.config.js with the rose color palette and fonts."
+    ],
+    "implementation_order": [
+      "1. Setup Global Styles (Fonts, Colors, Textures)",
+      "2. Build 'Runaway Button' Component (Core Prank Feature)",
+      "3. Build Landing Page (Hero, Features)",
+      "4. Build Dashboard (Template Selection)",
+      "5. Build Receiver View (The Prank Page)"
+    ],
+    "critical_rules": [
+      "DO NOT use default Shadcn slate/gray colors. Override them with Rose/Burgundy tones.",
+      "Ensure the 'No' button in the prank template is IMPOSSIBLE to click (unless accessibility mode is on).",
+      "Use the paper texture as a subtle overlay on the body background."
+    ]
+  },
+  "universal_guidelines": {
+    "do_not": [
+      "Do not use generic 'SaaS Blue' colors.",
+      "Do not use sharp square corners (unless for specific 'brutalist' template).",
+      "Do not make the prank 'mean' - keep it playful."
+    ],
+    "must_do": [
+      "Add 'data-testid' to all interactive elements.",
+      "Use 'sonner' for toasts.",
+      "Ensure mobile responsiveness is perfect (most users will open links on phones)."
+    ]
+  }
+}
