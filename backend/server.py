@@ -93,6 +93,52 @@ class PaymentVerify(BaseModel):
 class ValentineResponse(BaseModel):
     response: str
 
+# Helper function to get user's country from IP
+def get_country_from_ip(request: Request) -> str:
+    """Get country code from IP address"""
+    # Try to get real IP from headers (for proxy/load balancer scenarios)
+    forwarded = request.headers.get("X-Forwarded-For")
+    if forwarded:
+        client_ip = forwarded.split(",")[0].strip()
+    else:
+        client_ip = request.client.host if request.client else "127.0.0.1"
+    
+    # For development/localhost, default to India
+    if client_ip in ["127.0.0.1", "localhost"]:
+        return "IN"
+    
+    try:
+        import requests
+        response = requests.get(f"https://ipapi.co/{client_ip}/country/", timeout=2)
+        if response.status_code == 200:
+            return response.text.strip()
+    except:
+        pass
+    
+    return "US"  # Default to US if detection fails
+
+def get_regional_pricing(country_code: str) -> dict:
+    """Get pricing based on country"""
+    # India and neighboring countries
+    south_asian_countries = ["IN", "PK", "BD", "LK", "NP", "BT", "MV", "AF"]
+    
+    if country_code in south_asian_countries:
+        return {
+            "currency": "INR",
+            "symbol": "₹",
+            "single": 9.99,
+            "bundle_3": 24.99,  # ₹8.33/link - Save 16%
+            "bundle_5": 34.99   # ₹7/link - Save 30%
+        }
+    else:
+        return {
+            "currency": "USD",
+            "symbol": "$",
+            "single": 2.99,
+            "bundle_3": 7.49,   # $2.50/link - Save 16%
+            "bundle_5": 10.49   # $2.10/link - Save 30%
+        }
+
 # Helper function to get user from session token
 async def get_user_from_token(token: Optional[str]) -> Optional[Dict]:
     if not token:
