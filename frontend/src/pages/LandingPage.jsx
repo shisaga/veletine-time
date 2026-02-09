@@ -70,75 +70,75 @@ const LandingPage = () => {
           </Link>
         </header>
         
-        <main className="container max-w-6xl mx-auto px-4 py-12 lg:py-16">
-          <section className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-            <div className="space-y-6">
+        <main className="container max-w-6xl mx-auto px-4 py-8 sm:py-12 lg:py-16">
+          <section className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-16 sm:mb-20">
+            <div className="space-y-4 sm:space-y-6">
               <div className="inline-block">
-                <span className="font-accent text-2xl text-primary rotate-[-3deg] inline-block bg-white px-4 py-2 rounded-2xl shadow-cartoon">
+                <span className="font-accent text-lg sm:text-xl md:text-2xl text-primary rotate-[-3deg] inline-block bg-white px-3 py-1 sm:px-4 sm:py-2 rounded-2xl shadow-cartoon">
                   Valentine's Special 💘
                 </span>
               </div>
-              <h1 className="text-5xl lg:text-7xl font-heading font-bold text-foreground leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-foreground leading-tight">
                 Make Them Say <span className="text-primary wiggle inline-block">YES!</span> to Love
               </h1>
-              <p className="text-xl text-foreground/80 font-body leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-foreground/80 font-body leading-relaxed">
                 Create the CUTEST Valentine's surprise ever! Pick a fun prank template that makes saying "No" super hard 😊
               </p>
-              <div className="flex gap-4 pt-4">
-                <Link to="/login">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
+                <Link to="/login" className="w-full sm:w-auto">
                   <Button 
                     data-testid="get-started-btn" 
                     size="lg" 
-                    className="cartoon-border rounded-full px-10 py-6 text-xl font-heading font-bold bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-floating text-white"
+                    className="w-full sm:w-auto cartoon-border rounded-full px-8 sm:px-10 py-5 sm:py-6 text-lg sm:text-xl font-heading font-bold bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-floating text-white"
                   >
                     Get Started
-                    <Sparkles className="ml-2 h-6 w-6" />
+                    <Sparkles className="ml-2 h-5 w-5 sm:h-6 sm:w-6" />
                   </Button>
                 </Link>
-                <a href="/v/demo" target="_blank" rel="noopener noreferrer">
+                <a href="/v/demo" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                   <Button 
                     data-testid="try-demo-btn" 
                     size="lg" 
-                    className="cartoon-border rounded-full px-10 py-6 text-xl font-heading font-bold bg-white hover:bg-gray-50 text-foreground border-4"
+                    className="w-full sm:w-auto cartoon-border rounded-full px-8 sm:px-10 py-5 sm:py-6 text-lg sm:text-xl font-heading font-bold bg-white hover:bg-gray-50 text-foreground border-4"
                   >
                     Try Demo 👀
                   </Button>
                 </a>
               </div>
-              <div className="flex items-center gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 pt-4">
                 <div className="flex -space-x-2">
-                  <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/hkh1cha6_face1.svg" alt="Character" className="h-12 w-12 rounded-full border-4 border-white shadow-md" />
-                  <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/v6n5belr_face2.svg" alt="Character" className="h-12 w-12 rounded-full border-4 border-white shadow-md" />
-                  <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/xf1uempv_face3.svg" alt="Character" className="h-12 w-12 rounded-full border-4 border-white shadow-md" />
-                  <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/9fqt9wyl_face4.svg" alt="Character" className="h-12 w-12 rounded-full border-4 border-white shadow-md" />
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 border-4 border-white shadow-md flex items-center justify-center text-white font-bold">+</div>
+                  <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/hkh1cha6_face1.svg" alt="Character" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border-4 border-white shadow-md" />
+                  <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/v6n5belr_face2.svg" alt="Character" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border-4 border-white shadow-md" />
+                  <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/xf1uempv_face3.svg" alt="Character" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border-4 border-white shadow-md" />
+                  <img src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/9fqt9wyl_face4.svg" alt="Character" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border-4 border-white shadow-md" />
+                  <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 border-4 border-white shadow-md flex items-center justify-center text-white font-bold text-sm">+</div>
                 </div>
-                <p className="text-sm text-foreground/70 font-body">
-                  <span className="font-bold text-primary text-lg">2,847+</span> couples made magic 💖
+                <p className="text-xs sm:text-sm text-foreground/70 font-body">
+                  <span className="font-bold text-primary text-base sm:text-lg">2,847+</span> couples made magic 💖
                 </p>
               </div>
             </div>
             
-            <div className="relative">
+            <div className="relative order-first lg:order-last">
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/30 to-accent/30 rounded-[3rem] blur-2xl animate-pulse"></div>
-              <div className="relative bg-white rounded-[3rem] p-8 shadow-cartoon">
+              <div className="relative bg-white rounded-[2rem] sm:rounded-[3rem] p-4 sm:p-8 shadow-cartoon">
                 <img 
                   src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/04tdjn8i_adventure.png" 
                   alt="Happy cartoon couple"
                   className="w-full h-auto mx-auto"
                   style={{ maxHeight: '400px', objectFit: 'contain' }}
                 />
-                <div className="absolute -bottom-4 -right-4 bg-white rounded-3xl p-4 shadow-cartoon animate-bounce">
-                  <p className="text-4xl">💕</p>
+                <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-white rounded-2xl sm:rounded-3xl p-2 sm:p-4 shadow-cartoon animate-bounce">
+                  <p className="text-2xl sm:text-4xl">💕</p>
                 </div>
-                <div className="absolute -top-4 -left-4 bg-white rounded-3xl p-4 shadow-cartoon wiggle">
-                  <p className="text-4xl">✨</p>
+                <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 bg-white rounded-2xl sm:rounded-3xl p-2 sm:p-4 shadow-cartoon wiggle">
+                  <p className="text-2xl sm:text-4xl">✨</p>
                 </div>
-                <div className="absolute top-1/2 -left-6 transform -translate-y-1/2">
+                <div className="absolute top-1/2 -left-4 sm:-left-6 transform -translate-y-1/2">
                   <img 
                     src="https://customer-assets.emergentagent.com/job_heartlinks-2/artifacts/e5xd1fq7_fly.png"
                     alt="Flying character"
-                    className="h-20 w-20 animate-bounce"
+                    className="h-12 w-12 sm:h-20 sm:w-20 animate-bounce"
                   />
                 </div>
               </div>
