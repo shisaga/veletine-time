@@ -82,17 +82,17 @@ const Dashboard = () => {
           </div>
         </header>
         
-        <main className="container max-w-6xl mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-            <div className="bg-white rounded-3xl p-6 shadow-cartoon border-4 border-foreground/10 flex-1">
-              <h1 className="text-4xl lg:text-5xl font-heading font-bold text-foreground mb-2">
+        <main className="container max-w-6xl mx-auto px-4 py-8 sm:py-12">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 mb-6 sm:mb-8">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-cartoon border-4 border-foreground/10 flex-1 w-full sm:max-w-2xl">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-foreground mb-1 sm:mb-2">
                 Your <span className="text-primary">Valentines</span> 💕
               </h1>
-              <p className="text-foreground/70 font-body text-lg">Create and manage your love pranks!</p>
+              <p className="text-sm sm:text-base md:text-lg text-foreground/70 font-body">Create and manage your love pranks!</p>
             </div>
-            <Link to="/create">
-              <Button data-testid="create-new-btn" size="lg" className="cartoon-border rounded-full px-8 py-6 text-xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating animate-pulse hover:scale-110 transition-all text-white">
-                <Plus className="mr-2 h-6 w-6" />
+            <Link to="/create" className="w-full sm:w-auto">
+              <Button data-testid="create-new-btn" size="lg" className="w-full sm:w-auto cartoon-border rounded-full px-6 sm:px-8 py-5 sm:py-6 text-lg sm:text-xl font-heading font-bold bg-primary hover:bg-primary/90 shadow-floating animate-pulse hover:scale-110 transition-all text-white">
+                <Plus className="mr-2 h-5 w-5 sm:h-6 sm:w-6" />
                 Create New ✨
               </Button>
             </Link>
