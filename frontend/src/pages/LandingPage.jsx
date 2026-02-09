@@ -145,21 +145,21 @@ const LandingPage = () => {
             </div>
           </section>
           
-          <section className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-5xl lg:text-6xl font-heading font-bold text-foreground mb-4">
+          <section className="mb-16 sm:mb-20">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-foreground mb-3 sm:mb-4">
                 How It <span className="text-primary">Works!</span>
               </h2>
-              <p className="text-xl text-foreground/70 font-body">Super simple, super fun! 🎉</p>
+              <p className="text-base sm:text-lg md:text-xl text-foreground/70 font-body">Super simple, super fun! 🎉</p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-3xl p-8 shadow-cartoon hover:scale-105 transition-all duration-300 border-4 border-foreground/10">
-                <div className="h-20 w-20 bg-gradient-to-br from-pink-400 to-purple-400 rounded-3xl flex items-center justify-center mb-6 shadow-md mx-auto">
-                  <Heart className="h-10 w-10 text-white" />
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-cartoon hover:scale-105 transition-all duration-300 border-4 border-foreground/10">
+                <div className="h-16 w-16 sm:h-20 sm:w-20 bg-gradient-to-br from-pink-400 to-purple-400 rounded-2xl sm:rounded-3xl flex items-center justify-center mb-4 sm:mb-6 shadow-md mx-auto">
+                  <Heart className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-heading font-bold text-foreground mb-3 text-center">Pick Template</h3>
-                <p className="text-foreground/70 font-body leading-relaxed text-center">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-heading font-bold text-foreground mb-2 sm:mb-3 text-center">Pick Template</h3>
+                <p className="text-sm sm:text-base text-foreground/70 font-body leading-relaxed text-center">
                   Choose from 5 HILARIOUS templates - runaway buttons, guilt trips & more! 😂
                 </p>
               </div>
