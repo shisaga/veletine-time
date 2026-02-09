@@ -62,21 +62,21 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen cartoon-bg relative overflow-hidden">
       <div className="relative z-10">
-        <header className="container max-w-6xl mx-auto px-4 py-6 flex justify-between items-center mb-4">
-          <div className="flex items-center gap-3">
-            <div className="h-12 w-12 bg-primary rounded-full flex items-center justify-center shadow-cartoon animate-bounce">
-              <Heart className="h-7 w-7 text-white fill-white" />
+        <header className="container max-w-6xl mx-auto px-4 py-4 sm:py-6 flex justify-between items-center mb-4">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="h-8 w-8 sm:h-12 sm:w-12 bg-primary rounded-full flex items-center justify-center shadow-cartoon animate-bounce">
+              <Heart className="h-5 w-5 sm:h-7 sm:w-7 text-white fill-white" />
             </div>
-            <span className="text-3xl font-heading font-bold text-foreground">Cupid's Prank</span>
+            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-heading font-bold text-foreground">Cupid's Prank</span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             {user && (
-              <div className="flex items-center gap-3 bg-white rounded-full px-4 py-2 shadow-cartoon">
-                <img src={user.picture} alt={user.name} className="h-10 w-10 rounded-full border-3 border-primary" />
-                <span className="text-foreground font-body font-semibold hidden sm:inline">{user.name}</span>
+              <div className="flex items-center gap-2 sm:gap-3 bg-white rounded-full px-2 py-1 sm:px-4 sm:py-2 shadow-cartoon">
+                <img src={user.picture} alt={user.name} className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 sm:border-3 border-primary" />
+                <span className="text-sm sm:text-base text-foreground font-body font-semibold hidden md:inline">{user.name}</span>
               </div>
             )}
-            <Button data-testid="logout-btn" onClick={handleLogout} className="cartoon-border rounded-full px-6 font-heading font-bold bg-white hover:bg-gray-50">
+            <Button data-testid="logout-btn" onClick={handleLogout} className="cartoon-border rounded-full px-3 py-2 sm:px-6 text-sm sm:text-base font-heading font-bold bg-white hover:bg-gray-50">
               Logout
             </Button>
           </div>
