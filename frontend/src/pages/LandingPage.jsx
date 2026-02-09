@@ -56,15 +56,15 @@ const LandingPage = () => {
       </div>
       
       <div className="relative z-10">
-        <header className="container max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+        <header className="container max-w-6xl mx-auto px-4 py-4 sm:py-6 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <div className="h-12 w-12 bg-primary rounded-full flex items-center justify-center shadow-cartoon animate-bounce">
-              <Heart className="h-7 w-7 text-white fill-white" />
+            <div className="h-10 w-10 sm:h-12 sm:w-12 bg-primary rounded-full flex items-center justify-center shadow-cartoon animate-bounce">
+              <Heart className="h-5 w-5 sm:h-7 sm:w-7 text-white fill-white" />
             </div>
-            <span className="text-3xl font-heading font-bold text-foreground">Cupid's Prank</span>
+            <span className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground">Cupid's Prank</span>
           </div>
           <Link to="/login">
-            <Button data-testid="header-login-btn" className="cartoon-border rounded-full px-6 py-3 bg-primary hover:bg-primary/90 font-heading font-bold text-lg text-white">
+            <Button data-testid="header-login-btn" className="cartoon-border rounded-full px-4 py-2 sm:px-6 sm:py-3 bg-primary hover:bg-primary/90 font-heading font-bold text-sm sm:text-lg text-white">
               Sign In
             </Button>
           </Link>
